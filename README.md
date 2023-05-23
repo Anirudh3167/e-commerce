@@ -8,6 +8,7 @@ Download the code.
   1. NodeJs
   2. ReactJs
   3. NextJs
+## Usage
 ### For Windows
 Open Command prompt and navigate to `<your local path>/e-commerce/terndyhub`
 
@@ -16,3 +17,7 @@ Then `npm run dev`
 This will start a NextJs server on your local system.
 
 Now, you can view the website at `http://localhost:3000`
+
+# Contribution
+For contribution check out Guidelines.
+
