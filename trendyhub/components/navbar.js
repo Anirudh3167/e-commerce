@@ -1,9 +1,18 @@
+// React imports
 import React from 'react'
-import Styles from '@/components/styles/navbar.module.css'
+
+// Next imports
 import Head from 'next/head'
 import Link from 'next/link'
 
+// Styles imports
+import Styles from '@/components/styles/navbar.module.css'
+
+// Next-Auth imports
+import { signOut, useSession } from 'next-auth/react'
+
 export default function Navbar() {
+  const session = useSession();
   return (
     <main className={Styles.mainWrapper}>
       <Head>
@@ -29,9 +38,19 @@ export default function Navbar() {
               <Link href='#' className={Styles.content}>Home</Link>
               <Link href='#' className={Styles.content}>About</Link>
               <Link href='#' className={Styles.content}>Contact</Link>
-              <Link href='/signin' className={Styles.content}>
-                <div className={Styles.signupBtn}> Sign Up </div>
-              </Link>
+              { (session.status === "unauthenticated")?
+                <Link href='/signin' className={Styles.content}>
+                  <div className={Styles.signupBtn}> 
+                   Sign Up
+                  </div>
+                </Link>
+                : 
+                <div className={Styles.content} onClick={()=>{signOut()}}>
+                  <div className={Styles.signupBtn}> 
+                   Sign Out
+                  </div>
+                </div>
+              } 
             </div>
         </div>
     </main>
