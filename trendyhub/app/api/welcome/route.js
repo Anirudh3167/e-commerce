@@ -5,8 +5,8 @@ export async function GET(req) {
     let token = "abcsdfr";
 
     // Gets the previous token
-    const prevtoken = req.cookies.get('token')['value']
-    if (prevtoken != null) {token = prevtoken + "This is changed"}
+    const prevtoken = req.cookies.get('token')
+    if (prevtoken) {token = prevtoken['value'] + "This is changed"}
     console.log(prevtoken)
 
     // Response 
