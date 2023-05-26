@@ -38,18 +38,22 @@ export default function Navbar() {
               <Link href='#' className={Styles.content}>Home</Link>
               <Link href='#' className={Styles.content}>About</Link>
               <Link href='#' className={Styles.content}>Contact</Link>
-              { (session.status === "unauthenticated")?
+              {
+                (session.status === "authenticated")? 
+                <Link href='/profile' className={Styles.content}>Profile</Link> : ""
+              }
+              { (session.status === "authenticated")?
+                <div className={Styles.content} onClick={()=>{signOut()}}>
+                  <div className={Styles.signupBtn}> 
+                    Sign Out
+                  </div>
+                </div>
+                :
                 <Link href='/signin' className={Styles.content}>
                   <div className={Styles.signupBtn}> 
                    Sign Up
                   </div>
                 </Link>
-                : 
-                <div className={Styles.content} onClick={()=>{signOut()}}>
-                  <div className={Styles.signupBtn}> 
-                   Sign Out
-                  </div>
-                </div>
               } 
             </div>
         </div>
