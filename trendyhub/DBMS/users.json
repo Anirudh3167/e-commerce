@@ -6,4 +6,5 @@
 {"name":"Groot Tree","email":"IamGroot@email.com","password":"IamGroot"},
 {"username":"ABC","email":"abc@email.com","password":"abc"},
 {"username":"ABC1","email":"abc1@email.com","password":"abc"},
-{"username":"Anirudh","email":"anirudh@email.com","password":"anirudh"}]}
+{"username":"Anirudh","email":"anirudh@email.com","password":"anirudh"},
+{"username":"John Smith","email":"jsmith@example.com","password":"example"}]}
