@@ -2,11 +2,15 @@
 
 import React, { useState } from 'react';
 import styles from './profile.module.css';
+import { getSession, useSession } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
+import Navbar from '@/components/navbar';
+import Footer from '@/components/footer';
 
-export default function Profile() {
+export function ProfileContent() {
   const [fname, setFName] = useState('John');
   const [lname, setLName] = useState('Doe');
-  const [email, setEmail] = useState('johndoe@example.com');
+  const [email, setEmail] = useState('JhonDoe@email.com');
   const [phone, setPhone] = useState('123-456-7890');
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -154,6 +158,25 @@ export default function Profile() {
         </div>
         <img className={styles.bottom_image} src="https://th.bing.com/th/id/R.c0fb5d5bce7395a2b4649631239a3662?rik=AyZcJi5I9UoiaQ&riu=http%3a%2f%2fwww.new.jm-sys.com%2fbitrix%2ftemplates%2fjm-sys-en%2fimages%2fpage_bottom.png&ehk=EsAuaE9n7075heW2zhfmGQ0ywlT6Ap3%2fOEarSIN3B9s%3d&risl=&pid=ImgRaw&r=0"></img>
       </div>
+    </div>
+  );
+}
+
+export default function Profile() {
+
+  const router = useRouter();
+  const session = useSession();
+
+  return(
+    <div className={styles.mainWrappper}>
+        <Navbar />
+
+        {(session.status === "authenticated")?
+            <ProfileContent /> :
+            <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100vw",height:"calc(100vh - 200px)"}}> You are not authenticated </div>
+        }
+
+        <Footer />
     </div>
   );
 }

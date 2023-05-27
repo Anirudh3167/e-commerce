@@ -1,0 +1,4 @@
+{"records":[
+    {"id":"1","name":"Iron Suit","price":"3999","desc":"This is the Iron Man suit","stock":"4"},
+    {"id":"2","name":"Captain Shield","price":"450","desc":"This is fake","stock":"10"}
+]}
