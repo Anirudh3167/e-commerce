@@ -1,0 +1,99 @@
+.mainWrapper {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    min-height: calc(100vh - 200px);
+
+    padding: 10px;
+    padding-top: 60px;
+}
+
+.productCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 200px;
+    height: 300px;
+
+    border: 1px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    box-shadow: 0px 0px 6px rgb(20,20,20);
+
+    background-color: transparent;
+    color: black;
+}
+
+.productImage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 180px;
+    height: 180px;
+
+    margin-bottom: 5px;
+    border: 1px solid black;
+}
+
+.productName {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+
+    width: 180px;
+    height: 40px;
+
+    font-size: 20px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.productPrice {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 180px;
+    height: 40px;
+
+    font-size: 28px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.productButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 180px;
+    height: 40px;
+
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.productButtons > .btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 40px;
+    height: 40px;
+
+    border-radius: 50px;
+    border: 1px solid black;
+    padding: 10px;
+}

@@ -2,6 +2,8 @@
 #### Credentials
     New User Registration left. => Like sending a login link to email
     JWT tokens left.
+    Password encryption.
+    Use Session is not giving the user details. i.e. API endpoint needed
 #### Routing
     After Authenticating the user should actually get redirected.
 

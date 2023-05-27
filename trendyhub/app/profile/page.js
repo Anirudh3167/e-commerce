@@ -7,10 +7,11 @@ import { useRouter } from 'next/navigation';
 import Navbar from '@/components/navbar';
 import Footer from '@/components/footer';
 
-export function ProfileContent() {
+export function ProfileContent({ mail, name}) {
+  console.log(name);
   const [fname, setFName] = useState('John');
   const [lname, setLName] = useState('Doe');
-  const [email, setEmail] = useState('JhonDoe@email.com');
+  const [email, setEmail] = useState(mail);
   const [phone, setPhone] = useState('123-456-7890');
   const [isEditMode, setIsEditMode] = useState(false);
 
@@ -172,7 +173,7 @@ export default function Profile() {
         <Navbar />
 
         {(session.status === "authenticated")?
-            <ProfileContent /> :
+            <ProfileContent mail={session.data.user.email} name={session.data.user} /> :
             <div style={{display:"flex",alignItems:"center",justifyContent:"center",width:"100vw",height:"calc(100vh - 200px)"}}> You are not authenticated </div>
         }
 
