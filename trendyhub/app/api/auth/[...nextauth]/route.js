@@ -1,5 +1,8 @@
 import NextAuth from "next-auth"
 import CredentialsProvider from 'next-auth/providers/credentials';
+import path from 'path';
+import { promises as fs } from 'fs';
+import { NextResponse } from 'next/server';
 
 const handler = NextAuth({
   providers: [
@@ -12,15 +15,25 @@ const handler = NextAuth({
             password: {label:"Password",type:"password",placeholder:"Your password"}
         },
         async authorize(credentials,req) {
-            const user = { id: "1", name: "John Doe", email: "jsmith@example.com", password: "example"};
+          
+            const email = req.body['email'];
+            const password = req.body['password'];
 
-            if (user) {
-                // This will be replaced by JWT tokens later.
-                return user;
-            } else {
-                // Error in logging the user.
-                return null;
+            //Find the absolute path of the json directory
+            const jsonDirectory = path.join(process.cwd(), 'DBMS');
+            //Read the json data file data.json
+            const fileContents = await fs.readFile(jsonDirectory + '/users.json', 'utf8');
+            const users = JSON.parse(fileContents);
+
+            for (let i = 0; i < users['records'].length; i++) {
+                if ((users['records'][i]['email'] === email) && (users['records'][i]['password'] === password)) {
+                    return users['records'][i];
+                }
             }
+
+           
+            // Error in logging the user.
+            return null;
         }
     }),
   ],

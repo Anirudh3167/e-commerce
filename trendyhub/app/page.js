@@ -16,9 +16,13 @@ export default function Home() {
    <main className={Styles.mainWrapper}>
     <Navbar />
     <div className={Styles.mainContainer}>
-      This is the Home Page.
+      {(session.status === 'authenticated')?
+        <div> Hello, {session.data.user.email}</div> :
+        <div> This is the Home Page. &nbsp; &nbsp;Please Sign In </div>  
+      }
     </div>
     <Footer />
    </main> 
   )
 }
+
