@@ -38,7 +38,7 @@ export default function Navbar() {
             <div className={Styles.contentsContainer}>
               <Link href='#' className={Styles.content}>Home</Link>
               <Link href='#' className={Styles.content}>About</Link>
-              <Link href='#' className={Styles.content}>Contact</Link>
+              <Link href='/contact' className={Styles.content}>Contact</Link>
               {
                 (session.status === "authenticated")? 
                 <Link href='/profile' className={Styles.content}>Profile</Link> : ""

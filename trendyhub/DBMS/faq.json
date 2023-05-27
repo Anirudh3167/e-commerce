@@ -1,0 +1,6 @@
+{
+    "records":[
+        {"id":1,"question":"What is this?","answer":"This is an e-commerce app"},
+        {"id":2,"question":"How to buy a product?","answer":"Add it to cart. Then Go to cart and click on buy"}
+    ]
+}
