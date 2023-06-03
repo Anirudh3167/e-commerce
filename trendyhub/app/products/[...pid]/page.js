@@ -50,12 +50,12 @@ const ProductPage = ({ product }) => {
   // let data = await response.json();
   // console.log(data);
 
-export default async function Page({ params }) {
-  const id = params['pid'];
-  let response = await fetch("http://localhost:3000/api/product?" + new URLSearchParams({pid:id}),{
-    method:"GET"
-  })
-  let data = await response.json();
+// export default async function Page({ params }) {
+//   const id = params['pid'];
+//   let response = await fetch("http://localhost:3000/api/product?" + new URLSearchParams({pid:id}),{
+//     method:"GET"
+//   })
+//   let data = await response.json();
   return (
     <div className={Styles.mainWrapper}>
       <Navbar />

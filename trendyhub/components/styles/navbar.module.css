@@ -15,6 +15,7 @@
 
     box-shadow: 0px 2px 4px rgba(110,110,110,1);
     background-color: rgba(110,110,110,0.5);
+    z-index: 2;
 }
 
 .logoSpace {
