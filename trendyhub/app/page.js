@@ -33,6 +33,36 @@ export default function Home() {
     // router.push('/products/'+id);
   }
 
+  const AddCart = async (id) => {
+    if(session.status === "authenticated") {
+      console.log(id,session.data.user.email);
+      let response = await fetch("http://localhost:3000/api/cart",{
+        body:JSON.stringify({
+          id,
+          "email":session.data.user.email
+        }),
+        method:"POST"
+      })
+    } else {
+      console.log("Please login to continue")
+    }
+  }
+
+  const AddWishlist = async (id) => {
+    if(session.status === "authenticated") {
+      console.log(id,session.data.user.email);
+      let response = await fetch("http://localhost:3000/api/wishlist",{
+        body:JSON.stringify({
+          id,
+          "email":session.data.user.email
+        }),
+        method:"POST"
+      })
+    } else {
+      console.log("Please login to continue")
+    }
+  }
+
   return (
     <main className={Styles.mainWrapper}>
       <Navbar />
@@ -49,8 +79,8 @@ export default function Home() {
             <h4 className={Styles.productPrice}>${product.price}</h4>
             </Link>
             <div className={Styles.productButtons}>
-              <div className={Styles.cartBtn} data-tooltip="Add to cart">🛒</div>
-              <div className={Styles.wishlistBtn} data-tooltip="Add to Wishlist">💖</div>
+              <div className={Styles.cartBtn} data-tooltip="Add to cart" onClick={() => AddCart(product.id)}>🛒</div>
+              <div className={Styles.wishlistBtn} data-tooltip="Add to Wishlist" onClick={() => AddWishlist(product.id)}>💖</div>
             </div>
           </div>
         ))}

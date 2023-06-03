@@ -9,7 +9,6 @@ export default async function Page({ params }) {
     method:"GET"
   })
   let data = await response.json();
-  console.log(data);
   return (
     <div className={Styles.mainWrapper}>
       <Navbar />
