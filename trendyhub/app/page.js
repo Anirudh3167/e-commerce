@@ -74,13 +74,18 @@ export default function Home() {
         {records.map((product) => (
           <div className={Styles.productCard} key={product.id}>
             <Link href={`/products/${product.id}`}>
-            <img src="https://img.freepik.com/free-psd/product-display-3d-podium-background_47987-11310.jpg?w=740&t=st=1685000605~exp=1685001205~hmac=6d697197fe9dfc5be9090aa9091d5ae0e4f0f925975677de4d1b02bf47988686" className={Styles.productImage} alt="Product"></img>
-            <h3 className={Styles.productName}>{product.name}</h3>
-            <h4 className={Styles.productPrice}>${product.price}</h4>
+              <img src="https://img.freepik.com/free-psd/product-display-3d-podium-background_47987-11310.jpg?w=740&t=st=1685000605~exp=1685001205~hmac=6d697197fe9dfc5be9090aa9091d5ae0e4f0f925975677de4d1b02bf47988686" className={Styles.productImage}></img>
+              <h3 className={Styles.productName}> {product.name} </h3>
+              <h4 className={Styles.productPrice}> Rs. {product.price} </h4>
+              <p className={Styles.productDesc}>{product.desc}</p>
             </Link>
             <div className={Styles.productButtons}>
-              <div className={Styles.cartBtn} data-tooltip="Add to cart" onClick={() => AddCart(product.id)}>🛒</div>
-              <div className={Styles.wishlistBtn} data-tooltip="Add to Wishlist" onClick={() => AddWishlist(product.id)}>💖</div>
+            <div className={Styles.cartBtn} data-tooltip="Add to cart"  onClick={() => AddCart(product.id)}> 🛒 </div>
+              <div className={Styles.heartIcon}  onClick={() => AddWishlist(product.id)}>
+                <input type="checkbox" id="heartToggel" className={Styles.heartCheck}></input>
+                <label for="heartToggel" className={Styles.heart}></label>
+              </div>
+
             </div>
           </div>
         ))}
