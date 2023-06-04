@@ -1,0 +1,203 @@
+.mainWrapper {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fff3f3;
+  }
+  
+  .mainContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    justify-items: center;
+  
+    min-height: calc(100vh - 80px);
+    width: 100vw;
+  
+    padding-top: 60px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+  
+  .productCard:hover {
+    box-shadow: 0 6px 6px rgb(151, 151, 151);
+    cursor: pointer;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .productCard {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  
+    width: 200px;
+    height: 350px;
+  
+    border-radius: 5px;
+    margin: 10px 0;
+    padding: 10px;
+    box-shadow: 0 6px 6px rgb(183, 183, 183);
+  
+    background-color: #fff;
+    color: black;
+  }
+  
+  .productImage {
+    display: flex;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+  
+    width: 200px;
+    height: 200px;
+  
+    border-radius: 5px 5px 0 0;
+  }
+  
+  .productImage:hover {
+    width: 195px;
+    height: 195px;
+    top: 2.5px;
+    left: 2.5px;
+    right: 2.5px;
+  
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.1s ease-in-out;
+  }
+  
+  .productName {
+    text-align: center;
+    height: 40px;
+  
+    font-size: 20px;
+    margin-top: 200px;
+  
+    cursor: pointer;
+    color: rgb(89, 89, 89);
+  }
+  
+  .productPrice, .productDesc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  
+    width: 180px;
+  
+    margin-top: 5px;
+    margin-bottom: 5px;
+  
+    color: #717171;
+  }
+  
+  .productDesc {
+    position: relative;
+    font-size: 13px;
+    font-weight: 500;
+    color: #000;
+  }
+  
+  .productButtons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  
+    width: 180px;
+    height: 40px;
+  
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+  
+  .cartBtn {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+  
+    width: 35px;
+    height: 35px;
+  
+    border-radius: 50px;
+    border: 1px solid #6a6a6a;
+    padding: 10px;
+  }
+  
+  .heartIcon {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: 18px;
+    right: 18px;
+  }
+  
+  .heartCheck {
+    display: none;
+  }
+  
+  .heart {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background-image: url('https://freesvg.org/img/OCAL-Favorites-Icon-Unselected.png'); /* Replace with the path to your heart SVG image */
+    background-repeat: no-repeat;
+    background-size: cover;
+    cursor: pointer;
+  }
+  
+  .heartCheck:checked + .heart {
+    background-image: url('https://freesvg.org/img/1378418749.png'); /* Replace with the path to your filled heart SVG image */
+  }
+  
+  .cartBtn:hover {
+    cursor: pointer;
+    font-size: large;
+  }
+  
+  .cartBtn:hover {
+    border: 2px solid rgb(169, 169, 169);
+    background-color: #263550;
+  }
+  
+  .cartBtn:hover::after {
+    content: attr(data-tooltip);
+    position: absolute; /* Add position absolute */
+    top: 125%; /* Adjust tooltip position */
+    left: 50%; /* Adjust tooltip position */
+    transform: translateX(-50%);
+    background-color: #263550;
+    color: #fff;
+    font-weight: 500;
+    padding: 5px 15px;
+    border-radius: 4px;
+    white-space: nowrap;
+    font-size: 14px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s, visibility 0.2s;
+    z-index: 1; 
+  }
+  
+  .cartBtn:hover::before {
+  content: '';
+  position: absolute;
+  top: 90%; /* Adjust tooltip position */
+  left: 35%; /* Adjust tooltip position */
+  transform: translateX(-50%);
+  transform: rotate(-180deg);
+  border: 6px solid transparent;
+  border-top-color: #263550;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.2s, visibility 0.2s;
+  }
+  
+  .cartBtn:hover::after, .cartBtn:hover::before{
+    opacity: 1;
+    visibility: visible;
+  }
