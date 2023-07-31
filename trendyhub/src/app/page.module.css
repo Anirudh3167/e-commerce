@@ -1,0 +1,15 @@
+.mainWraper {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.mainContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: 100vw;
+  min-height: calc(100vh - 60px);
+}

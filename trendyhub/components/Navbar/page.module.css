@@ -1,0 +1,188 @@
+.mainWrapper {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+
+    width: 100%;
+    height: 60px;
+    padding: 5px;
+
+    background-color: black;
+    color: white;
+}
+
+.hamburgerMenu {
+    position: relative;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 40px;
+    height: 40px;
+
+    margin: 5px;
+    cursor: pointer;
+}
+
+.hamburgerLine {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 30px;
+    height: 2px;
+
+    background-color: rgb(150,150,150);
+    transition: 0.5s;
+}
+
+.hamburgerTop {
+    top: 16px;
+}
+
+.hamburgerMiddle {
+    top: 23px;
+}
+
+.hamburgerBottom {
+    top: 30px;
+}
+
+.activeHamburger > .hamburgerTop {
+    transform: translateY(7px) rotateZ(45deg);
+}
+.activeHamburger > .hamburgerBottom {
+    transform: translateY(-7px) rotateZ(-45deg);
+}
+.activeHamburger > .hamburgerMiddle {
+    opacity: 0;
+}
+
+.logoSpace {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 50px;
+
+    font-size: 24px;
+    font-weight: 700;
+    background: linear-gradient(90deg,green,red);
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.searchBarBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    max-width: 500px;
+    min-width: 300px;
+    width: 100%;
+    height: 40px;
+
+
+    border-radius: 25px;
+    border: 0;
+    padding: 5px;
+    padding-left: 10px;
+    font-size: 18px;
+    background-color: rgb(120,120,120);
+    color: black;
+}
+.searchBarBox::placeholder {color: rgb(70,70,70); padding-left: 25px;}
+
+.linksHolder {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    flex-direction: row;
+}
+
+.linkContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 150px;
+    height: 40px;
+
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.navLink {
+    position: absolute;
+    top: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+}
+
+.linkContainer:hover > .subLinksHolder {display: flex;}
+
+.subLinksHolder {
+    position: absolute;
+    top: 40px;
+    display: none;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+
+    background-color: black;
+}
+
+.subLinkContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 60px;
+}
+
+.loginBtn {
+    background-color: rgb(35, 84, 163);
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.logoutBtn {
+    width: calc(100% - 10px);
+
+    background-color: red;
+    color: white;
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width : 800px) {
+    .hamburgerMenu {display: flex;}
+    .searchBarBox {display: none;}
+    .linksHolder {display: none; flex-direction: column;}
+    .activeHamburger ~ .searchBarBox {display: flex;}
+    .activeHamburger ~ .linksHolder {display: flex;}
+}
