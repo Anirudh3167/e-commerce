@@ -1,0 +1,202 @@
+.mainWrapper {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 400;
+    color: #666666;
+    background: #eaeff4;
+}
+
+.login {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1140px;
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: flex;
+    background: #ffffff;
+    box-shadow: 0 0 5px #999999;
+}
+
+
+
+.login .colLeft,
+.login .colRight {
+    padding: 30px;
+    display: flex;
+}
+
+
+.login .colLeft {
+    width: 60%;
+    clip-path: polygon(0 0, 0% 100%, 100% 0);
+    background: #2aa15f;
+}
+
+.login .colRight {
+    padding: 60px 30px;
+    width: 50%;
+    margin-left: -10%;
+}
+
+
+@media(max-width: 500px) {
+    .login {
+        padding: 0 4px;
+    }
+
+    .login .container {
+        flex-direction: column;
+        box-shadow: none;
+        border-radius: 6px;
+    }
+
+    .login .colLeft,
+    .login .colRight {
+        width: 100%;
+        margin: 0;
+        clip-path: none;
+    }
+
+    .login .colLeft {
+        text-align: center;
+        border-radius: 6px 6px 0 0;
+    }
+
+    .login .colRight {
+        padding: 30px;
+    }
+
+}
+
+
+.login .loginText {
+    position: relative;
+    width: 100%;
+    color: #ffffff;
+}
+
+.login .loginText h2 {
+    margin: 0 0 15px 0;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.login .loginText p {
+    margin: 0 0 20px 0;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.login .loginText .btn {
+    display: inline-block;
+    font-family: poppins;
+    padding: 7px 20px;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-decoration: none;
+    border-radius: 30px;
+    color: #ffffff;
+    outline: none;
+    border: 1px solid #ffffff;
+    box-shadow: inset 0 0 0 0 #ffffff;
+    background-color: #2aa15f;
+    transition: .3s;
+}
+
+.login .loginText .btn:hover {
+    color: #2aa15f;
+    box-shadow: inset 150px 0 0 0 #ffffff;
+}
+
+.login .loginForm {
+    position: relative;
+    width: 100%;
+}
+
+.login .loginForm h2 {
+    margin: 0 0 15px 0;
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.login .loginForm p {
+    margin: 0 0 10px 0;
+    text-align: left;
+    color: #666666;
+    font-size: 15px;
+}
+
+.login .loginForm p:last-child {
+    margin: 0;
+    padding-top: 3px;
+}
+
+.login .loginForm p a {
+    color: #2aa15f;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.login .loginForm label {
+    display: block;
+    width: 100%;
+    margin-bottom: 2px;
+    letter-spacing: .5px;
+}
+
+.login .loginForm p:last-child label {
+    width: 60%;
+    float: left;
+}
+
+.login .loginForm label span {
+    color: #ff574e;
+    padding-left: 2px;
+}
+
+.login .loginForm input {
+    display: block;
+    width: 100%;
+    height: 35px;
+    padding: 0 10px;
+    outline: none;
+    border: 1px solid #cccccc;
+    border-radius: 30px;
+}
+
+.login .loginForm input:focus {
+    border-color: #ff574e;
+}
+
+.login .loginForm button,
+.login .loginForm input[type=submit] {
+    display: inline-block;
+    width: 100%;
+    margin-top: 5px;
+    color: #2aa15f;
+    font-size: 16px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #2aa15f;
+    border-radius: 30px;
+    box-shadow: inset 0 0 0 0 #2aa15f;
+    transition: .3s;
+}
+
+.login .loginForm button:hover,
+.login .loginForm input[type=submit]:hover {
+    color: #ffffff;
+    box-shadow: inset 250px 0 0 0 #2aa15f;
+}
