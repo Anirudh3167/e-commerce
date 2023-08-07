@@ -14,24 +14,220 @@
   min-height: calc(100vh - 60px);
 }
 
-.infiniteSlider {
-  width: 100%;
+.brandAdSliderWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: calc(100vw - 10px);
+  min-height: 300px;
+
+  background-color: rgb(60,60,60);
+  border-radius: 10px;
+  margin: 5px;
   overflow: hidden;
 }
 
-.bigSliderWrapper {
+.brandAdSlider {
   display: flex;
-  transition: transform 3s ease-out;
-}
-
-.bigChild {
-  flex-shrink: 0;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: row;
 
   width: 100%;
-  min-height: calc(90vh - 80px);
 
-  text-align: center;
-  font-size: 2rem;
-  
-  background-color: #f0f0f0;
+}
+
+.brandSlide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-width: calc(100vw - 30px);
+  height: 450px;
+
+  border-radius: 10px;
+  margin: 10px;
+  background:linear-gradient(45deg,black,black,green);
+  color: white;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.brandSlideInformer {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  bottom: 20px;
+}
+
+.brandSlideInformerItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 5px;
+  margin: 5px;
+}
+
+.sliderWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+
+  width: calc(100vw - 10px);
+  margin: 5px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: #222;
+  border-radius: 10px;
+}
+
+.sliderHeading {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 100%;
+  height: 60px;
+
+  padding-left: 20px;
+  font-size: 28px;
+  font-weight: 700;
+  color: white;
+}
+
+.sliderContainer {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: row;
+  flex-wrap: nowrap;
+
+  width: calc(100% - 10px);
+  height: 220px;
+
+  margin: 5px;
+  padding-left: 10px;
+  overflow: hidden;
+}
+
+.sliderItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 150px;
+  min-width: 150px;
+  height: 200px;
+
+  margin: 5px;
+  border-radius: 5px;
+  background-color: rgb(60,60,60);
+  color: white;
+  transition: 1s;
+}
+
+.sliderBtns {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  top: 50%;
+
+  width: 100%;
+}
+
+.slidePrevBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  left: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  margin: 5px;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 24px;
+  background-color: black;
+  color:white;
+  cursor: pointer;
+}
+
+.slideNextBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 20px;
+
+  width: 40px;
+  height: 40px;
+
+  margin: 5px;
+  padding: 5px;
+  border-radius: 50%;
+  font-size: 24px;
+  background-color: black;
+  color:white;
+  cursor: pointer;
+}
+
+.categoriesTableHead {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 60px;
+
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.categoriesTable {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+
+  max-width: 620px;
+  width: 100%;
+  min-width: 300px;
+  min-height: 60px;
+
+  border-radius: 10px;
+  margin: 10px;
+  background-color: #222;
+  color: white;
+}
+
+.categoriesItem {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40%;
+  min-width: 280px;
+  height: 40px;
+
+  margin: 10px;
+  border-radius: 5px;
+  background-color: rgb(130,130,130);
+  color: black;
 }

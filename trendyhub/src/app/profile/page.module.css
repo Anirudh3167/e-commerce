@@ -1,0 +1,131 @@
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    background-color: black;
+    color: white;
+}
+
+.leftContainer {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 300px;
+    height: 100vh;
+
+    border-right: 2px solid rgb(40,40,40);
+    overflow: scroll;
+}
+
+.editDetails {
+    position: absolute;
+    right: 5px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100px;
+    height: 40px;
+
+    font-size: 16px;
+    background-color: grey;
+    color: white;
+    border: 0;
+}
+
+.profilePicContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.profilePic {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 130px;
+    height: 130px;
+
+    background-color: #222;
+    border-radius: 50%;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+.profileUsername {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+
+    padding: 5px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.profileContent {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100%;
+
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.InputBox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    height: 40px;
+
+    border: 0;
+    font-size: 18px;
+    font-weight: 400;
+    padding-left: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    overflow: hidden;
+    background-color: #222;
+    color: white;
+}
+
+.InputBox::placeholder {color: rgb(80,80,80);}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+
+    background-color: black;
+    color: white;
+}

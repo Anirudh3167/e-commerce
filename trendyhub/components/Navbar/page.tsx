@@ -58,21 +58,27 @@ function Navbar() {
                 <div className={styles.navLink}> Deals </div>
                 <div className={styles.subLinksHolder}>
                   <div className={styles.subLinkContainer}>
-                    <Link href="#" className={styles.navLink}> Product 1 </Link>
+                    <Link href="#" className={styles.navLink}> Daily Deals </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
-                    <Link href="#" className={styles.navLink}> product 2 </Link>
+                    <Link href="#" className={styles.navLink}> Big Sale </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
-                    <Link href="#" className={styles.navLink}> product 3 </Link>
+                    <Link href="#" className={styles.navLink}> Unsold Sale </Link>
                   </div>
                 </div>
               </div>
 
               <div className={styles.linkContainer}>
-                <div className={`${styles.navLink} ${login ? "" : styles.loginBtn}`}  onClick={() => {login ? "" : setLogin(!login)}}> {login ? "Profile" : "Login / Signup"} </div>
+                <div className={`${styles.navLink} ${login ? "" : styles.loginBtn}`}  
+                  onClick={() => {login ? "" : setLogin(!login)}}> 
+                    {login ? "@Master" : "Login / Signup"} 
+                </div>
                 {login ?
                 <div className={styles.subLinksHolder}>
+                  <div className={styles.subLinkContainer}>
+                    <Link href="/profile" className={styles.navLink}> Profile </Link>
+                  </div>
                   <div className={styles.subLinkContainer}>
                     <Link href="#" className={styles.navLink}> Orders </Link>
                   </div>
