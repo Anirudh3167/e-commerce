@@ -115,7 +115,7 @@
   flex-wrap: nowrap;
 
   width: calc(100% - 10px);
-  height: 220px;
+  height: 320px;
 
   margin: 5px;
   padding-left: 10px;
@@ -128,9 +128,9 @@
   justify-content: center;
   flex-direction: column;
 
-  width: 150px;
-  min-width: 150px;
-  height: 200px;
+  width: 200px;
+  min-width: 200px;
+  height: 300px;
 
   margin: 5px;
   border-radius: 5px;
@@ -230,4 +230,123 @@
   border-radius: 5px;
   background-color: rgb(130,130,130);
   color: black;
+}
+
+                                                  /* Slider slides */
+.slideContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 200px;
+  height: 300px;
+
+  overflow: hidden;
+}
+
+.slideImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 200px;
+  height: 165px;
+
+  overflow: hidden;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.slideImage:hover {width: 210px; height: 175px;}
+
+.slideTitle {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  width: 200px;
+  height: 40px;
+
+  font-size: 18px;
+  font-weight: 300;
+  overflow: hidden;
+  padding-left: 5px;
+}
+
+.slideSubContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+
+  width: 200px;
+  
+  padding: 5px;
+}
+
+.slidePriceContainer {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  flex-direction: column;
+
+  width: 80px;
+  padding: 5px;
+}
+
+.slidePrice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.slideDiscountPercent {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 16px;
+  color: red;
+}
+
+.slideBrand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 70px;
+  max-width: 100px;
+
+  overflow: hidden;
+  padding: 2px;
+  font-size: 12px;
+  background-color: rgb(44, 176, 44);
+  color: white;
+}
+
+.slideBottomContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: row;
+
+  width: 300px;
+  height: 40px;
+}
+
+.addWishlistBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 40px;
+  height: 40px;
+
+  border-radius: 50%;
+  /* border: 2px solid black; */
+  padding: 5px;
 }

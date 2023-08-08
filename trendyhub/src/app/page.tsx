@@ -1,34 +1,55 @@
 'use client'
 
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image'
+
 import styles from './page.module.css'
 import Navbar from '../../components/Navbar/page'
-import Link from 'next/link';
 
+import Link from 'next/link';
+import axios from 'axios'
+
+import {AiOutlineHeart,AiOutlineShoppingCart} from 'react-icons/ai'
 
 export default function Home() {
+  // Type casting
+  type sliderData = {
+      "id" : Number,
+      title : String,
+      description : String,
+      price : Number,
+      discountPercentage : Number,
+      rating : Number,
+      stock : Number,
+      brand : String,
+      category : String,
+      thumbnail : String,
+      images : [String]
+  }
   // Slider Variables here.
   const [brandAdSlider,setBrandAdSlider] = useState([
     {'message':'Item 1'},{'message':'Item 2'},{'message':'Item 3'},{'message':'Item 4'},
     {'message':'Item 5'},{'message':'Item 6'},{'message':'Item 7'},{'message':'Item 8'},
   ])
   const [brandSliderIndex,setBrandSliderIndex] = useState(0);
-  const [sliderOne,setSliderOne] = useState([
-    {'message':'Item 1'},{'message':'Item 2'},{'message':'Item 3'},{'message':'Item 4'},
-    {'message':'Item 5'},{'message':'Item 6'},{'message':'Item 7'},{'message':'Item 8'},
-  ])
+  const [sliderOne,setSliderOne] = useState<sliderData[]>([])
   const [sliderOneIndex,setSliderOneIndex] = useState(0);
-  const [sliderTwo,setSliderTwo] = useState([
-    {'message':'Item 1'},{'message':'Item 2'},{'message':'Item 3'},{'message':'Item 4'},
-    {'message':'Item 5'},{'message':'Item 6'},{'message':'Item 7'},{'message':'Item 8'},
-  ])
+  const [sliderTwo,setSliderTwo] = useState<sliderData[]>([])
   const [sliderTwoIndex,setSliderTwoIndex] = useState(0);
-  const [sliderThree,setSliderThree] = useState([
-    {'message':'Item 1'},{'message':'Item 2'},{'message':'Item 3'},{'message':'Item 4'},
-    {'message':'Item 5'},{'message':'Item 6'},{'message':'Item 7'},{'message':'Item 8'},
-  ])
+  const [sliderThree,setSliderThree] = useState<sliderData[]>([])
   const [sliderThreeIndex,setSliderThreeIndex] = useState(0);
+
+  // Loading API's
+  useEffect(() => {
+    const getFakeData = async () => {
+      const resp = await axios.get('https://dummyjson.com/products');
+      console.log(resp.data.products);
+      setSliderOne(resp.data.products.slice(0,10));
+      setSliderTwo(resp.data.products.slice(11,20));
+      setSliderThree(resp.data.products.slice(21,30));
+    } 
+
+    getFakeData();
+  },[])
 
   useEffect(() => {
     const sliderInterval = setInterval(() => {
@@ -64,15 +85,29 @@ export default function Home() {
               })}
           </div>
         </div>
-                                                                {/* Slider 1 --> Latest */}
+                                                                {/* Slider 1 --> Electronics */}
         <div className={styles.sliderWrapper}>        
-          <div className={styles.sliderHeading}> Latest </div>
+          <div className={styles.sliderHeading}> Electronics </div>
           <div className={styles.sliderContainer}>
             {sliderOne.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${160*sliderOneIndex}px`}}>
-                    {slide.message}
+                  style={{"transform":`translateX(-${210*sliderOneIndex}px`}}>
+                    <div className={styles.slideContainer}>
+                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideTitle}>{slide.title}</div>
+                      <div className={styles.slideSubContainer}>
+                          <div className={styles.slidePriceContainer}>
+                            <div className={styles.slidePrice}>₹{`${slide.price}`}</div>
+                            <div className={styles.slideDiscountPercent}>{`-${slide.discountPercentage}%`}</div>
+                          </div>
+                          <div className={styles.slideBrand}>{slide.brand}</div>
+                      </div>
+                      <div className={styles.slideBottomContainer}>
+                        <AiOutlineHeart className={styles.addWishlistBtn} />
+                        <AiOutlineShoppingCart className={styles.addWishlistBtn} />
+                      </div>
+                    </div>
                 </div>
               )
             })}
@@ -90,15 +125,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-                                                                {/* Slider 2 --> Trending */}
+                                                                {/* Slider 2 --> Skin Care */}
         <div className={styles.sliderWrapper}>
-          <div className={styles.sliderHeading}> Trending </div>
+          <div className={styles.sliderHeading}> Skin Care </div>
           <div className={styles.sliderContainer}>
             {sliderTwo.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${160*sliderTwoIndex}px`}}>
-                    {slide.message}
+                  style={{"transform":`translateX(-${210*sliderTwoIndex}px`}}>
+                    <div className={styles.slideContainer}>
+                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideTitle}>{slide.title}</div>
+                      <div className={styles.slideSubContainer}>
+                          <div className={styles.slidePriceContainer}>
+                            <div className={styles.slidePrice}>₹{`${slide.price}`}</div>
+                            <div className={styles.slideDiscountPercent}>{`-${slide.discountPercentage}%`}</div>
+                          </div>
+                          <div className={styles.slideBrand}>{slide.brand}</div>
+                      </div>
+                      <div className={styles.slideBottomContainer}>
+                        <AiOutlineHeart className={styles.addWishlistBtn} />
+                        <AiOutlineShoppingCart className={styles.addWishlistBtn} />
+                      </div>
+                    </div>
                 </div>
               )
             })}
@@ -116,15 +165,29 @@ export default function Home() {
             </div>
           </div>
         </div>
-                                                                {/* Slider 3 --> Electronics */}
+                                                                {/* Slider 3 --> Fancy Store */}
         <div className={styles.sliderWrapper}>
-          <div className={styles.sliderHeading}> Electronics </div>
+          <div className={styles.sliderHeading}> Fancy Store </div>
           <div className={styles.sliderContainer}>
             {sliderThree.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${160*sliderThreeIndex}px`}}>
-                    {slide.message}
+                  style={{"transform":`translateX(-${210*sliderThreeIndex}px`}}>
+                    <div className={styles.slideContainer}>
+                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideTitle}>{slide.title}</div>
+                      <div className={styles.slideSubContainer}>
+                          <div className={styles.slidePriceContainer}>
+                            <div className={styles.slidePrice}>₹{`${slide.price}`}</div>
+                            <div className={styles.slideDiscountPercent}>{`-${slide.discountPercentage}%`}</div>
+                          </div>
+                          <div className={styles.slideBrand}>{slide.brand}</div>
+                      </div>
+                      <div className={styles.slideBottomContainer}>
+                        <AiOutlineHeart className={styles.addWishlistBtn} />
+                        <AiOutlineShoppingCart className={styles.addWishlistBtn} />
+                      </div>
+                    </div>
                 </div>
               )
             })}
