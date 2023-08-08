@@ -1,45 +1,57 @@
 .mainContainer {
+    position: relative;
     display: flex;
     align-items: center;
-    justify-content: center;
-    flex-direction: row;
+    justify-content: space-between;
+    flex-direction: column;
 
     width: 100vw;
-    min-height: 100vh;
+    min-height: calc(100vh - 60px);
 
     background-color: black;
     color: white;
 }
 
-.leftContainer {
-    position: relative;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-
-    width: 300px;
-    height: 100vh;
-
-    border-right: 2px solid rgb(40,40,40);
-    overflow: scroll;
-}
-
 .editDetails {
     position: absolute;
-    right: 5px;
-
+    right: 20px;
+    top: 10px;
+    
     display: flex;
     align-items: center;
     justify-content: center;
-
+    
     width: 100px;
     height: 40px;
-
+    
     font-size: 16px;
     background-color: grey;
     color: white;
     border: 0;
+    cursor: pointer;
+}
+
+.userDetailsWrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    max-width: 800px;
+    min-width: 300px;
+
+    margin-top: 60px;
+}
+
+.userDetailsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
 }
 
 .profilePicContainer {
@@ -48,10 +60,9 @@
     justify-content: center;
     flex-direction: column;
 
-    width: 100%;
+    width: 300px;
     
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px;
 }
 
 .profilePic {
@@ -81,19 +92,29 @@
     font-weight: 500;
 }
 
-.profileContent {
+.profileDetails {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 300px;
+    height: 150px;
+    
+    margin: 5px;
+}
+
+.detailsItem {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
     flex-direction: column;
 
-    width: 100%;
-
-    padding: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    width: 300px;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin: 5px;
     font-size: 18px;
-    font-weight: 600;
 }
 
 .InputBox {
@@ -101,7 +122,7 @@
     align-items: center;
     justify-content: center;
 
-    width: 100%;
+    width: 300px;
     height: 40px;
 
     border: 0;
@@ -117,15 +138,61 @@
 
 .InputBox::placeholder {color: rgb(80,80,80);}
 
-.rightContainer {
+.otherUserDetails {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+
+    margin-top: 10px;
+}
+
+.userOptions {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
 
     width: 100%;
     max-width: 800px;
     min-width: 300px;
+}
 
-    background-color: black;
+.OptionsItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 70px;
+
+    background-color: rgb(80,80,80);
+    color: black;
+    border-radius: 10px;
+    font-size: 20px;
+    font-weight: 400;
+    margin: 5px;
+}
+
+.headingItem {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 60px;
+
+    font-size: 30px;
+    font-weight: 700;
     color: white;
+    border-bottom: 2px solid rgb(40,40,40);
+}
+
+@media only screen and (max-width:850px) {
+    .userDetailsContainer {justify-content: center;}
+    .otherUserDetails {justify-content: center;}
 }
