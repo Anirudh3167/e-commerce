@@ -9,6 +9,7 @@ import Link from 'next/link';
 import axios from 'axios'
 
 import {AiOutlineHeart,AiOutlineShoppingCart} from 'react-icons/ai'
+import { useRouter } from 'next/navigation';
 
 export default function Home() {
   // Type casting
@@ -37,6 +38,11 @@ export default function Home() {
   const [sliderTwoIndex,setSliderTwoIndex] = useState(0);
   const [sliderThree,setSliderThree] = useState<sliderData[]>([])
   const [sliderThreeIndex,setSliderThreeIndex] = useState(0);
+
+  const navigate = useRouter();
+  const showProduct = (slide:number,index:number) => {
+        navigate.push(`/products/${slide+index}`);
+  }
 
   // Loading API's
   useEffect(() => {
@@ -92,7 +98,8 @@ export default function Home() {
             {sliderOne.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${210*sliderOneIndex}px`}}>
+                  style={{"transform":`translateX(-${210*sliderOneIndex}px`}}
+                  onClick={() => {showProduct(1,index);}}>
                     <div className={styles.slideContainer}>
                       <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
                       <div className={styles.slideTitle}>{slide.title}</div>
@@ -132,7 +139,8 @@ export default function Home() {
             {sliderTwo.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${210*sliderTwoIndex}px`}}>
+                  style={{"transform":`translateX(-${210*sliderTwoIndex}px`}}
+                  onClick={() => {showProduct(12,index);}}>
                     <div className={styles.slideContainer}>
                       <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
                       <div className={styles.slideTitle}>{slide.title}</div>
@@ -172,7 +180,8 @@ export default function Home() {
             {sliderThree.map((slide,index) => {
               return (
                 <div className={styles.sliderItem} key={index} 
-                  style={{"transform":`translateX(-${210*sliderThreeIndex}px`}}>
+                  style={{"transform":`translateX(-${210*sliderThreeIndex}px`}}
+                  onClick={() => {showProduct(22,index);}}>
                     <div className={styles.slideContainer}>
                       <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
                       <div className={styles.slideTitle}>{slide.title}</div>

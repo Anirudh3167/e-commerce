@@ -1,0 +1,13 @@
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    font-size: 28px;
+    font-weight: 400;
+    background-color: black;
+    color: white;
+}
