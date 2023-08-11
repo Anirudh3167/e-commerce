@@ -1,0 +1,256 @@
+.mainContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    min-height: 100vh;
+
+    font-size: 28px;
+    font-weight: 400;
+    background-color: white;
+    color: black;
+}
+
+.submainContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    flex-direction: row;
+
+    width: calc(100vw - 20px);
+}
+
+.imagesContainer {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100vw;
+    min-width: 300px;
+    max-width: 500px;
+    height: 400px;
+
+    /* border: 2px solid rgb(60,60,60); */
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    min-height: 100%;
+
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.imageBox {
+    width: 100%;
+    min-width: 100%;
+    height: 100%;
+    min-height: 100%;
+}
+
+.slideBtnsWrapper {
+    position: absolute;
+    bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: 100%;
+}
+
+.slideBtnsContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+
+    width: fit-content;
+    height: 30px;
+
+    background-color: rgba(100,100,100,0.6);
+    padding: 0 5px;
+    border-radius: 20px;
+}
+
+.slideBtns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 20px;
+    height: 20px;
+
+    margin: 5px;
+    border-radius: 50%;
+    background-color: rgb(170,170,170);
+}
+
+.aboutProduct {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 50%;
+    min-width: 300px;
+    max-width: 500px;
+
+    padding: 5px;
+}
+
+.productPartition {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.productTitle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    height: 60px;
+
+    font-size: 30px;
+    font-weight: 600;
+    padding: 5px;
+}
+
+.productBrand {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 30px;
+    max-width: 200px;
+
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+    background-color: green;
+    color: white;
+    overflow: hidden;
+}
+
+.productDesc {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+    
+    font-size: 16px;
+    padding: 5px;
+}
+
+.productRating {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    font-size: 16px;
+    color: rgb(200,130,0);
+}
+
+.productPriceContainer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+
+    padding: 5px;
+}
+
+.productDiscount {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: red;
+    font-size: 16px;
+    margin: 0 5px;
+}
+
+.productStock {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+
+    font-size: 16px;
+    color: rgb(130,130,130);
+}
+
+.buyNowBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 60px;
+
+    border-radius: 5px;
+    margin: 10px 0;
+    background-color: rgb(170,230,40);
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+.addCartBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 280px;
+    height: 60px;
+
+    border-radius: 5px;
+    margin: 5px 0;
+    background-color: rgb(170,170,170);
+    color: black;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+@media only screen and (max-width:1050px) {
+    .submainContainer {
+        justify-content: center;
+    }
+}
+
+@media only screen and (max-width:800px) {
+    .submainContainer {
+        flex-wrap: wrap;
+    }
+}
+
+@media only screen and (max-width:600px) {
+    .imagesContainer {
+        height: 300px;
+        width: 350px;
+    }
+}

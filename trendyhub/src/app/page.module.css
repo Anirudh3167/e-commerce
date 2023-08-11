@@ -79,6 +79,7 @@
 }
 
 .sliderWrapper {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -119,7 +120,8 @@
 
   margin: 5px;
   padding-left: 10px;
-  overflow: hidden;
+  overflow-x: scroll;
+  overflow-y: hidden;
 }
 
 .sliderItem {
