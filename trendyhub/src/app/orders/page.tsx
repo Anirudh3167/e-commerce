@@ -38,18 +38,33 @@ function Orders() {
     // Add more dummy orders as needed
   ]);
 
-  const getStatusColor = (status) => {
+  const getStatusComponent = (status:string) => {
     switch (status) {
       case 'Ordered':
-        return 'orange';
+        // return 'orange';
+        return(
+          <p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Status: <span className={styles.statusClass} style={{ color:"rgb(230,130,0)", backgroundColor:"rgba(170,110,0,0.2)" }}>{status}</span></p>
+        )
       case 'Delivered':
-        return 'green';
+        // return 'green';
+        return(
+          <p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Status: <span className={styles.statusClass} style={{ color:"rgb(0,230,0)", backgroundColor:"rgba(0,130,0,0.2)" }}>{status}</span></p>
+        )
       case 'Failed':
-        return 'red';
+        // return 'red';
+        return(
+          <p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Status: <span className={styles.statusClass} style={{ color:"rgb(230,0,0)", backgroundColor:"rgba(130,0,0,0.2)" }}>{status}</span></p>
+        )
       case 'Returned':
-        return 'blue';
+        // return 'blue';
+        return(
+          <p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Status: <span className={styles.statusClass} style={{ color:"rgb(0,0,230)", backgroundColor:"rgba(0,0,130,0.2)" }}>{status}</span></p>
+        )
       default:
-        return 'black';
+        // return 'black';
+        return(
+          <p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>Status: <span className={styles.statusClass} style={{ color:"black", backgroundColor:"white" }}>{status}</span></p>
+        )
     }
   };
 
@@ -64,7 +79,7 @@ function Orders() {
             id=""
             placeholder="Search your orders here"
           />
-          <a>🔍 Search</a>
+          <div className={styles.searchBtn}>Search</div>
         </div>
 
         {orderDetails.map((order, index) => (
@@ -76,7 +91,7 @@ function Orders() {
               <p>Order ID: {order.orderId}</p>
               <p>Ordered on: {order.date}</p>
               <p>Price: ₹{order.price.toFixed(2)}</p>
-              <p>Status: <span style={{ color: getStatusColor(order.status) }}>{order.status}</span></p>
+              {getStatusComponent(order.status)}
             </div>
             <div className={styles.eRight}>
               {">"}

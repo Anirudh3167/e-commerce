@@ -80,7 +80,7 @@ function Navbar() {
                     <Link href="/profile" className={styles.navLink}> Profile </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
-                    <Link href="#" className={styles.navLink}> Orders </Link>
+                    <Link href="/orders" className={styles.navLink}> Orders </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
                     <Link href="#" className={styles.navLink}> Wishlist </Link>
