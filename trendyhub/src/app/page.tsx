@@ -44,6 +44,7 @@ export default function Home() {
         navigate.push(`/products/${slide+index}`);
   }
 
+
   // Loading API's
   useEffect(() => {
     const getFakeData = async () => {
@@ -118,6 +119,7 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
             <div className={styles.sliderBtns}>
               <div className={styles.slidePrevBtn} 
                 style={sliderOneIndex === 0 ? {display:"none"} : {display:"flex"}} 
@@ -130,7 +132,6 @@ export default function Home() {
                   {`>`}
               </div>
             </div>
-          </div>
         </div>
                                                                 {/* Slider 2 --> Skin Care */}
         <div className={styles.sliderWrapper}>
@@ -159,6 +160,7 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
             <div className={styles.sliderBtns}>
               <div className={styles.slidePrevBtn} 
                 style={sliderTwoIndex === 0 ? {display:"none"} : {display:"flex"}} 
@@ -171,7 +173,6 @@ export default function Home() {
                   {`>`}
               </div>
             </div>
-          </div>
         </div>
                                                                 {/* Slider 3 --> Fancy Store */}
         <div className={styles.sliderWrapper}>
@@ -200,6 +201,7 @@ export default function Home() {
                 </div>
               )
             })}
+          </div>
             <div className={styles.sliderBtns}>
               <div className={styles.slidePrevBtn} 
                 style={sliderThreeIndex === 0 ? {display:"none"} : {display:"flex"}} 
@@ -212,7 +214,6 @@ export default function Home() {
                   {`>`}
               </div>
             </div>
-          </div>
         </div>
 
                                                                         {/* Categories */}
