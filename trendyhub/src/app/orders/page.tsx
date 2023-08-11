@@ -5,23 +5,53 @@ import Image from "next/image";
 import styles from "./orders.module.css";
 import Navbar from "../../../components/Navbar/page";
 
-const Orders: React.FC = () => {
-  const [rating, setRating] = useState<number | null>(null);
+function Orders() {
+  const [orderDetails, setOrderDetails] = useState([
+    {
+      orderId: '12345',
+      imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
+      date: '2023-08-11',
+      status: 'Failed',
+      price: 100.0,
+    },
+    {
+      orderId: '67890',
+      imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
+      date: '2023-08-12',
+      status: 'Ordered',
+      price: 200.0,
+    },
+    {
+      orderId: '56790',
+      imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
+      date: '2019-03-12',
+      status: 'Delivered',
+      price: 350.3,
+    },
+    {
+      orderId: '56790',
+      imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
+      date: '2019-03-12',
+      status: 'Returned',
+      price: 350.3,
+    },
+    // Add more dummy orders as needed
+  ]);
 
-  const handleStarClick = (selectedRating: number) => {
-    setRating(selectedRating === rating ? null : selectedRating);
+  const getStatusColor = (status) => {
+    switch (status) {
+      case 'Ordered':
+        return 'orange';
+      case 'Delivered':
+        return 'green';
+      case 'Failed':
+        return 'red';
+      case 'Returned':
+        return 'blue';
+      default:
+        return 'black';
+    }
   };
-
-  let greetingMessage = "";
-  if (rating === null) {
-    greetingMessage = "";
-  } else if (rating === 1) {
-    greetingMessage = "Sorry to hear you didn't like it.";
-  } else if (rating === 5) {
-    greetingMessage = "Thanks for loving our product!";
-  } else {
-    greetingMessage = "Thanks for your feedback!";
-  }
 
   return (
     <div className={styles.mainWrapper}>
@@ -36,42 +66,27 @@ const Orders: React.FC = () => {
           />
           <a>🔍 Search</a>
         </div>
-        <div className={styles.ordersChild}>
-          <div className={styles.left}>
-            <img src="https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1" alt="productImage" /> 
-          </div>
-          <div className={styles.right}>
-            <h3>Product Name</h3>
-            <p>Delivered on June 9</p>
-            <div>
-              <div className={styles.starRating}>
-                {[1, 2, 3, 4, 5].map((star) => (
-                  <span
-                    key={star}
-                    className={`${styles.star} ${
-                      star <= (rating || 0) ? styles.selected : ""
-                    }`}
-                    onClick={() => handleStarClick(star)}
-                  >
-                    ★
-                  </span>
-                ))}
-                <p>
-                  {rating === null
-                    ? "Rate this product now"
-                    : `You've rated: ${rating} stars`}
-                </p>
-                <p>{greetingMessage}</p>
-              </div>
+
+        {orderDetails.map((order, index) => (
+          <a key={index}  href="#" className={styles.ordersChild}>
+            <div className={styles.left}>
+              <img src={order.imageURL} alt="productImage" /> 
             </div>
-          </div>
-          <div className={styles.eRight}>
-            {">"}
-          </div>
-        </div>
+            <div className={styles.right}>
+              <p>Order ID: {order.orderId}</p>
+              <p>Ordered on: {order.date}</p>
+              <p>Price: ₹{order.price.toFixed(2)}</p>
+              <p>Status: <span style={{ color: getStatusColor(order.status) }}>{order.status}</span></p>
+            </div>
+            <div className={styles.eRight}>
+              {">"}
+            </div>
+          </a>
+        ))}
+
       </div>
     </div>
-  );
-};
+  )
+}
 
 export default Orders;
