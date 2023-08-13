@@ -1,78 +1,111 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 
 import styles from "./order.module.css";
 import Navbar from "../../../../components/Navbar/page";
+import Link from 'next/link'
+import axios from "axios";
 
 function Order({ params }: { params: { orderId: string } }) {
-    const [productDetails, setProductDetails] = useState([
-        { 
-            productName: 'Product A',
-            productId: "12345",
-            imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
-            brand: 'Brand X', 
-            qty: 2, 
-            price: 102
-        },
-        { 
-            productName: 'Product B', 
-            productId: "90345",
-            imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
-            brand: 'Brand Y', 
-            qty: 3, 
-            price: 150 
-        },
-        { 
-            productName: 'Product B', 
-            productId: "90345",
-            imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
-            brand: 'Brand Y', 
-            qty: 3, 
-            price: 150 
-        },
-        { 
-            productName: 'Product B', 
-            productId: "90345",
-            imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
-            brand: 'Brand Y', 
-            qty: 3, 
-            price: 150 
-        },
-        // Add more products here
-      ]);
+    // Type casting
+    type productType = {
+      thumbnail : String,
+      productId : String,
+      title : String,
+      brand : String,
+      rating : number,
+      qty : number,
+      price : number
+    }
+    type productDataType = {
+      id : string,
+      title : String,
+      description : String,
+      price : number,
+      discountPercentage : number,
+      rating : number,
+      stock : number,
+      brand : String,
+      category : String,
+      thumbnail : String,
+      images : [String]
+  }
+    const [productDetails, setProductDetails] = useState<productType[] | null >(null);
+    const [displayDetails, setDisplayDetails] = useState<productType[] | null >(null);
+    const [searchInput,setSearchInput] = useState('');
 
+    // Load the data to displayDetails on the value of productDetails change.
+    useEffect(() => {setDisplayDetails(productDetails)},[productDetails]);
+
+    const handleSearch = () => {
+      if (searchInput !== '') {
+        const searchInputLower = searchInput.toLowerCase();
+       var displayData : productType[] = [];
+       productDetails && productDetails.forEach((product) => {
+          const productTitleLower = product.title.toLowerCase();
+          if (productTitleLower.indexOf(searchInputLower) !== -1) {
+            displayData.push(product);
+          }
+        })
+        setDisplayDetails(displayData)
+      } else {
+        setDisplayDetails(productDetails);
+      }
+    }
+
+
+    // Getting the data.
+    useEffect(() => {
+      const getData = async () => {
+        const resp = await axios.get("https://dummyjson.com/products");
+
+        const details: productType[] = resp.data.products.map((product: productDataType) => ({
+          title: product.title,
+          thumbnail: product.thumbnail,
+          qty: product.stock,
+          rating: product.rating,
+          price: product.price,
+          brand: product.brand,
+          productId: product.id,
+        }));
+          setProductDetails(details);
+      }
+
+      getData();
+    },[])
   return (
     <div className={styles.mainWrapper}>
       <Navbar />
       <div className={styles.orderContainer}>
         <h1>Your Products</h1>
-        <h4>OrderID: 12345</h4> {/*render order id here */}
+        <h4>OrderID: {params.orderId}</h4> {/*render order id here */}
         <div className={styles.searchContainer}>
           <input
             type="text"
             name=""
             id=""
             placeholder="Search your products here"
+            onChange={(e) => {setSearchInput(e.target.value)}}
           />
-          <div className={styles.searchBtn}>Search</div>
+          <div className={styles.searchBtn} onClick={() => {handleSearch()}}>Search</div>
         </div>
         <div className={styles.productContainer}>
-        {productDetails.map((product, index) => (
-            <div key={index} className={styles.productChild}>
+        { productDetails ? displayDetails ? displayDetails.map((product, index) => (
+          <Link href={`/products/${product.productId}`} key={index} className={styles.productChild}>
             <div className={styles.left}>
-              <img src={product.imageURL} alt="productImage" /> 
-                <a href="#">View product ↗️</a>
+              <img src={`${product.thumbnail}`} alt="productImage" />
             </div>
             <div className={styles.right}>
-            <p>Product Name: {product.productName}</p>
+            <p>Product Name: {product.title}</p>
             <p>Brand: <span>{product.brand}</span></p>
+            <p>Rating: {product.rating}/5</p>
             <p>Qty: {product.qty}</p>
             <p>Price: ₹{product.price.toFixed(2)}</p>
             <p>Total Price: ₹{(product.qty * product.price).toFixed(2)}</p>
               {/* {getStatusComponent(order.status)} */}
             </div>
-          </div>
-        ))}
+          </Link>
+        )) : "" : "Loading" }
         </div>
       </div>
     </div>
