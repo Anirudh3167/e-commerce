@@ -1,12 +1,13 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-import styles from "./order.module.css";
-import Navbar from "../../../../components/Navbar/page";
+import styles from "./page.module.css";
+import Navbar from "../../../components/Navbar/page";
 import Link from 'next/link'
 import axios from "axios";
+import { AiFillHeart, AiOutlineHeart, AiOutlineShoppingCart } from "react-icons/ai";
 
-function Order({ params }: { params: { orderId: string } }) {
+function Order() {
     // Type casting
     type productType = {
       thumbnail : String,
@@ -77,17 +78,7 @@ function Order({ params }: { params: { orderId: string } }) {
     <div className={styles.mainWrapper}>
       <Navbar />
       <div className={styles.orderContainer}>
-        <h1>Your Products</h1>
-        <h4>OrderID: {params.orderId}</h4> {/*render order id here */}
-        <h4><p style={{display:"flex",flexDirection:"row",alignItems:"center"}}>
-          Status: 
-          <span className={styles.statusClass} 
-          style={{ color:"rgb(0,230,0)", backgroundColor:"rgba(0,130,0,0.2)", height:"30px",width:"120px",
-          display:"flex",alignItems:"center",justifyContent:"center",borderRadius:"10px",margin:"0 5px" }}>
-            Delivered
-          </span>
-          </p>
-        </h4>
+        <h1>Wishlist</h1>
         <div className={styles.searchContainer}>
           <input
             type="text"
@@ -100,20 +91,25 @@ function Order({ params }: { params: { orderId: string } }) {
         </div>
         <div className={styles.productContainer}>
         { productDetails ? displayDetails ? displayDetails.map((product, index) => (
-          <Link href={`/products/${product.productId}`} key={index} className={styles.productChild}>
-            <div className={styles.left}>
+          <div key={index} className={styles.productChild}>
+            <Link href={`/products/${product.productId}`} className={styles.left}>
               <img src={`${product.thumbnail}`} alt="productImage" />
-            </div>
-            <div className={styles.right}>
+            </Link>
+            <Link href={`/products/${product.productId}`} className={styles.right}>
             <p>Product Name: {product.title}</p>
             <p>Brand: <span>{product.brand}</span></p>
             <p>Rating: {product.rating}/5</p>
-            <p>Qty: {product.qty}</p>
+            {/* <p>Qty: {product.qty}</p> */}
             <p>Price: ₹{product.price.toFixed(2)}</p>
-            <p>Total Price: ₹{(product.qty * product.price).toFixed(2)}</p>
+            {/* <p>Total Price: ₹{(product.qty * product.price).toFixed(2)}</p> */}
               {/* {getStatusComponent(order.status)} */}
+            </Link>
+            <div className={styles.productBottomContainer}>
+              <AiFillHeart className={styles.addWishlistBtn} style={{color:"red"}} />
+              {/* <AiOutlineHeart className={styles.addWishlistBtn} /> */}
+              <AiOutlineShoppingCart className={styles.addWishlistBtn} />
             </div>
-          </Link>
+          </div>
         )) : "" : "Loading" }
         </div>
       </div>

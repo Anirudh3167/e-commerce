@@ -3,12 +3,14 @@ import React, { ChangeEvent, useState } from 'react'
 import Link from 'next/link';
 
 import styles from './page.module.css'
+import { useRouter } from 'next/navigation';
 
 function Navbar() {
   // Variables
   const [activeHamubrger,seActiveHamburger] = useState(false);
   const [searchBarInput,setSearchBarInput] = useState("");
   const [login,setLogin] = useState(false);
+  const router = useRouter();
 
   // Functions
   const searchBarAction = (event: ChangeEvent<HTMLInputElement>) => {
@@ -17,8 +19,8 @@ function Navbar() {
 };
   const searchAction = () => {
     if (searchBarInput !== "") {
-
-      console.log(searchBarInput);
+      router.push(`/search/${searchBarInput}`);
+      
       setSearchBarInput("");
     }
   }
@@ -80,10 +82,13 @@ function Navbar() {
                     <Link href="/profile" className={styles.navLink}> Profile </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
-                    <Link href="/orders" className={styles.navLink}> Orders </Link>
+                    <Link href="/cart" className={styles.navLink}> Cart </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
-                    <Link href="#" className={styles.navLink}> Wishlist </Link>
+                    <Link href="/wishlist" className={styles.navLink}> Wishlist </Link>
+                  </div>
+                  <div className={styles.subLinkContainer}>
+                    <Link href="/orders" className={styles.navLink}> Orders </Link>
                   </div>
                   <div className={styles.subLinkContainer}>
                     <Link href="#" className={styles.navLink}> Settings </Link>

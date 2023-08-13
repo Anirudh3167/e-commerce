@@ -1,0 +1,11 @@
+.mainConatiner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100vw;
+    min-height: calc(100vh - 60px);
+
+    font-size: 30px;
+    font-weight: 700;
+}
