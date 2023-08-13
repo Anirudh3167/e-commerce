@@ -12,6 +12,7 @@ function Orders() {
       imageURL: "https://th.bing.com/th/id/OIP.wMftsrP6USIHg4aMEpwnPQHaHa?pid=ImgDet&rs=1",
       date: '2023-08-11',
       status: 'Failed',
+      // productIds: ['12345', '90345'] and Quatity of that product multiple product ids present to link that help in product retrieval for particular order along with the quantities
       price: 100.0,
     },
     {
@@ -72,6 +73,7 @@ function Orders() {
     <div className={styles.mainWrapper}>
       <Navbar />
       <div className={styles.ordersContainer}>
+        <h2>Your Orders</h2>
         <div className={styles.searchContainer}>
           <input
             type="text"
@@ -83,7 +85,7 @@ function Orders() {
         </div>
 
         {orderDetails.map((order, index) => (
-          <a key={index}  href="#" className={styles.ordersChild}>
+          <a key={index}  href={`/orders/${order.orderId}`} className={styles.ordersChild}>
             <div className={styles.left}>
               <img src={order.imageURL} alt="productImage" /> 
             </div>
