@@ -74,14 +74,16 @@ export default function Home() {
         <div className={styles.brandAdSliderWrapper}>
           <div className={styles.brandAdSlider} 
             style={{transform: `translateX(-${brandSliderIndex * 100}%)`}}>
-              {brandAdSlider.map((slide,index) => {
+              {sliderOne.map((slide,index) => {
                 return (
-                  <div className={styles.brandSlide} key={index}>{slide.message}</div>
+                  <div className={styles.brandSlide} key={index}>
+                    <img src={`${slide.thumbnail}`} alt="No Image here" width="100%" height="100%" />
+                  </div>
                 )
               })}
           </div>
           <div className={styles.brandSlideInformer}>  {/*Dots at slider bottom*/}
-              {brandAdSlider.map((slide,index) => {
+              {sliderOne.map((slide,index) => {
                 return (
                   <div className={styles.brandSlideInformerItem} key={index}
                   onClick={() => {setBrandSliderIndex(index)}}
@@ -102,7 +104,9 @@ export default function Home() {
                   style={{"transform":`translateX(-${210*sliderOneIndex}px`}}
                   onClick={() => {showProduct(1,index);}}>
                     <div className={styles.slideContainer}>
-                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideImageContainer}>
+                        <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      </div>
                       <div className={styles.slideTitle}>{slide.title}</div>
                       <div className={styles.slideSubContainer}>
                           <div className={styles.slidePriceContainer}>
@@ -143,7 +147,9 @@ export default function Home() {
                   style={{"transform":`translateX(-${210*sliderTwoIndex}px`}}
                   onClick={() => {showProduct(12,index);}}>
                     <div className={styles.slideContainer}>
-                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideImageContainer}>
+                        <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      </div>
                       <div className={styles.slideTitle}>{slide.title}</div>
                       <div className={styles.slideSubContainer}>
                           <div className={styles.slidePriceContainer}>
@@ -184,7 +190,9 @@ export default function Home() {
                   style={{"transform":`translateX(-${210*sliderThreeIndex}px`}}
                   onClick={() => {showProduct(22,index);}}>
                     <div className={styles.slideContainer}>
-                      <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      <div className={styles.slideImageContainer}>
+                        <img src={`${slide.thumbnail}`} alt="No Image" className={styles.slideImage} />
+                      </div>
                       <div className={styles.slideTitle}>{slide.title}</div>
                       <div className={styles.slideSubContainer}>
                           <div className={styles.slidePriceContainer}>

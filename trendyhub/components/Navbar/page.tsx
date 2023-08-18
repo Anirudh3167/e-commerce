@@ -3,12 +3,12 @@ import React, { ChangeEvent, useState } from 'react'
 import Link from 'next/link';
 
 import styles from './page.module.css'
-import { useRouter } from 'next/navigation';
+import { useParams, useRouter } from 'next/navigation';
 
-function Navbar() {
+function Navbar({ params: { search = "" } = {} }) {
   // Variables
   const [activeHamubrger,seActiveHamburger] = useState(false);
-  const [searchBarInput,setSearchBarInput] = useState("");
+  const [searchBarInput,setSearchBarInput] = useState(search);
   const [login,setLogin] = useState(false);
   const router = useRouter();
 
@@ -41,7 +41,10 @@ function Navbar() {
           <div className={styles.hamburgerWrapper}>
             {/* searchBar */}
             <div className={styles.searchBarContainer}>
-              <input placeholder='Search here' value={searchBarInput} onInput={(e: ChangeEvent<HTMLInputElement>) => {searchBarAction(e)}} className={styles.searchBarBox} />
+              <input placeholder='Search here' value={searchBarInput} 
+              onInput={(e: ChangeEvent<HTMLInputElement>) => {searchBarAction(e)}} 
+              onKeyUp={(e: React.KeyboardEvent<HTMLInputElement>) => { e.key === 'Enter' ? searchAction() : ""}}
+              className={styles.searchBarBox} />
               <div className={styles.searchBtn} onClick={() => {searchAction();}}> Search </div>
             </div>
 

@@ -172,7 +172,7 @@
     .orderContainer .productChild {
         flex-direction: column;
         align-items: center;
-        justify-content: center;
+        justify-content: flex-start;
     }
 
     .right {
