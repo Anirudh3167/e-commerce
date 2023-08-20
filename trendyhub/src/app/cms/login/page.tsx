@@ -4,15 +4,17 @@ import React,{ useState } from 'react'
 
 import styles from './page.module.css'
 import { AiFillEye, AiFillEyeInvisible } from 'react-icons/ai';
+import { useRouter } from 'next/navigation';
 
 function page() {
   const [uid,setUid] = useState("");
   const [pass,setPass] = useState("");
   const [showPass,setShowPass] = useState(false);
+  const router = useRouter();
 
   const handleSubmit = () => {
     if (uid === "master" && pass === "master") {
-        alert("You are logged in to CMS");
+        router.push("/cms/add-product");
     } else {
         alert("Invalid Credentials");
     }

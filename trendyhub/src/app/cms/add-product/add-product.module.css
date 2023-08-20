@@ -1,0 +1,194 @@
+.mainWrapper {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.mainContainer {    
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+
+    width: 100vw;
+    min-width: 300px;
+    height: 100vh;
+
+    background-color: #222;
+    color: white;
+    overflow: scroll;
+    padding-top: 20px;
+}
+
+.divisionContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+    min-height: 300px;
+}
+
+.leftContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    width: 300px;
+    height: 300px;
+}
+
+.rightContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+
+    width: 300px;
+    min-height: 300px;
+}
+
+.itemContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 100%;
+    
+    margin: 10px;
+}
+
+.itemHead {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+
+    width: 100%;
+
+    font-size: 20px;
+    font-weight: 700;
+    margin: 5px;
+    padding: 5px;
+    padding-left: 20px;
+}
+
+.thumbnailContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    width: 150px;
+    height: 150px;
+
+    overflow: hidden;
+    background-color: transparent;
+}
+
+.imageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 150px;
+    height: 150px;
+
+    border-radius: 50%;
+    background-color: black;
+}
+
+.uploadImageContainer {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 250px;
+    height: 140px;
+
+    font-size: 18px;
+    font-weight: 500;
+    color: white;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.inputContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: calc(100% - 20px);
+    min-height: 40px;
+
+    padding: 5px 20px;
+    font-size: 18px;
+    border: 2px solid rgb(20,70,230);
+}
+
+.containerBtns {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    flex-wrap: wrap;
+
+    width: 100%;
+}
+
+.submitBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    height: 40px;
+
+    border-radius: 5px;
+    background-color: green;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.descriptionBox {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    width: calc(100% - 20px);
+    height: 150px;
+
+    resize: none;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.imagesImageContainer {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+
+    width: 100%;
+    height: 320px;
+
+    overflow: scroll;
+}
+
+.imagesImageItem {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 300px;
+    height: 300px;
+
+    margin: 10px;
+}

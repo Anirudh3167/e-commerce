@@ -83,7 +83,7 @@ function page({ params }: { params: { pid: string } }) {
                       <div className={styles.productDiscount}>-{`${productDetails.discountPercentage}%`} discount</div>
                     </div>
                     <div className={styles.productStock}> In stock: {`${productDetails.stock}`}</div>
-                    <div className={styles.buyNowBtn}> Buy Now </div>
+                    <div className={styles.buyNowBtn}> Add to Wishlist </div>
                     <div className={styles.addCartBtn}> Add to Cart </div>
                   </div>
               </div>
